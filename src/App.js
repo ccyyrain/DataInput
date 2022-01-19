@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Tree from "./components/Tree";
+import { treeData } from "./data/input1";
+
+const Container = styled.div`
+  padding: 5px;
+`;
+const Button = styled.button`
+  display: block;
+`;
 
 function App() {
+  const [textJson, setTextJson] = useState(JSON.stringify(treeData));
+  const [inputJson, setInputJson] = useState("");
+  // const [outPutJson, setOutputJson] = useState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <textarea
+        value={textJson}
+        onChange={(e) => setTextJson(e.target.value)}
+        style={{ width: "800px", height: "200px" }}
+      />
+      <Button
+        onClick={(e) => setInputJson(JSON.parse(textJson))}
+        disabled={!textJson}
+      >
+        Generate Data Tree
+      </Button>
+      {/* <textarea
+        value={JSON.stringfy(outPutJson)} //TODO: write a function to convert json to an object for storing state
+        style={{ width: "800px", height: "200px" }}
+      /> */}
+      <div>
+        <h1>DataInputTree</h1>
+        <Tree data={inputJson} />
+      </div>
+    </Container>
   );
 }
 
