@@ -23,6 +23,7 @@ const RowItem = styled.div`
   flex-basis: 0;
   flex-grow: 1;
   background-color: #f5f5f5;
+  text-transform: capitalize;
 `;
 
 const Caret = styled.div`

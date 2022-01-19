@@ -5,7 +5,9 @@ const LineItem = styled.div`
   flex-flow: row wrap;
 `;
 
-const LineLabel = styled.div``;
+const LineLabel = styled.div`
+  text-transform: capitalize;
+`;
 const LineContent = styled.div`
   width: 500px;
   margin-left: auto;
