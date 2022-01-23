@@ -44,8 +44,8 @@ const Tree = ({ data = {}, index = "" }) => {
           <TreeNode
             label={itm}
             node={data[itm]}
-            key={index + `.${itm}`}
-            index={index ? index + `.${itm}` : `${itm}`}
+            key={index ? index + `#${itm}` : `${itm}`}
+            index={index ? index + `#${itm}` : `${itm}`}
           />
         ))}
       </TreeList>
