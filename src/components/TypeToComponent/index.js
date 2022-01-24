@@ -4,13 +4,33 @@ import { useSelector, useDispatch } from "react-redux";
 import { setComponentValues } from "../../redux/appSlice";
 import { setAttributeFromPath } from "../../utils/common-utils";
 
-const LineItem = styled.div`
+const LineItem = styled.li`
   display: flex;
   flex-flow: row wrap;
+  :nth-of-type(even) {
+    background-color: #f5f5f5;
+  }
+  ${(props) => {
+    if (props.index === "parent") {
+      return ``;
+    } else {
+      return `
+        &::before {
+        content: "";
+        width: 1em;
+        height: 0;
+        position: relative;
+        left: -1em;
+        top: 0.75em;
+        border-top: 0.1em solid;
+      }`;
+    }
+  }};
 `;
 
 const LineLabel = styled.div`
   text-transform: capitalize;
+  margin-left: -0.75em;
 `;
 const LineContent = styled.div`
   width: 500px;

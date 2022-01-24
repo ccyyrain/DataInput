@@ -12,10 +12,10 @@ const TreeList = styled.ul`
   padding-left: 1rem;
   display: flex;
   flex-direction: column;
+  border-left: 0.1rem solid;
 `;
 const TreeNodeLi = styled.li`
   // display: flex;
-  border-left: 0.1rem solid;
 `;
 
 const RowItem = styled.div`
@@ -39,16 +39,16 @@ const Caret = styled.div`
 const Tree = ({ data = {}, index = "" }) => {
   return (
     <TreeContainer>
-      <TreeList>
-        {Object.keys(data).map((itm) => (
-          <TreeNode
-            label={itm}
-            node={data[itm]}
-            key={index ? index + `#${itm}` : `${itm}`}
-            index={index ? index + `#${itm}` : `${itm}`}
-          />
-        ))}
-      </TreeList>
+      {/* <TreeList> */}
+      {Object.keys(data).map((itm) => (
+        <TreeNode
+          label={itm}
+          node={data[itm]}
+          key={index ? index + `#${itm}` : `${itm}`}
+          index={index ? index + `#${itm}` : `${itm}`}
+        />
+      ))}
+      {/* </TreeList> */}
     </TreeContainer>
   );
 };

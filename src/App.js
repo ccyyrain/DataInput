@@ -38,7 +38,9 @@ function App() {
       </Button>
       <div>
         <h1>DataInputTree</h1>
-        <Tree data={inputJson} />
+        <ul>
+          <Tree data={inputJson} />
+        </ul>
       </div>
       <div>
         <h1>Data Output</h1>
